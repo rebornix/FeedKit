@@ -25,10 +25,10 @@
 import Foundation
 
 /// Describes the individual path for each XML DOM element of an RSS feed
-/// 
+///
 /// See http://web.resource.org/rss/1.0/modules/content/
 enum RSSPath: String {
-    
+
     case rss                                                    = "/rss"
     case rssChannel                                             = "/rss/channel"
     case rssChannelTitle                                        = "/rss/channel/title"
@@ -73,19 +73,19 @@ enum RSSPath: String {
     case rssChannelItemGUID                                     = "/rss/channel/item/guid"
     case rssChannelItemPubDate                                  = "/rss/channel/item/pubDate"
     case rssChannelItemSource                                   = "/rss/channel/item/source"
-    
+
     // Content
-    
+
     case rssChannelItemContentEncoded                           = "/rss/channel/item/content:encoded"
-    
+
     // Syndication
-    
+
     case rssChannelSyndicationUpdatePeriod                      = "/rss/channel/sy:updatePeriod"
     case rssChannelSyndicationUpdateFrequency                   = "/rss/channel/sy:updateFrequency"
     case rssChannelSyndicationUpdateBase                        = "/rss/channel/sy:updateBase"
-    
+
     // Dublin Core
-    
+
     case rssChannelDublinCoreTitle                              = "/rss/channel/dc:title"
     case rssChannelDublinCoreCreator                            = "/rss/channel/dc:creator"
     case rssChannelDublinCoreSubject                            = "/rss/channel/dc:subject"
@@ -116,9 +116,9 @@ enum RSSPath: String {
     case rssChannelItemDublinCoreRelation                       = "/rss/channel/item/dc:relation"
     case rssChannelItemDublinCoreCoverage                       = "/rss/channel/item/dc:coverage"
     case rssChannelItemDublinCoreRights                         = "/rss/channel/item/dc:rights"
-    
+
     // iTunes Podcasting Tags
-    
+
     case rssChannelItunesAuthor                                 = "/rss/channel/itunes:author"
     case rssChannelItunesBlock                                  = "/rss/channel/itunes:block"
     case rssChannelItunesCategory                               = "/rss/channel/itunes:category"
@@ -134,7 +134,7 @@ enum RSSPath: String {
     case rssChannelItunesSummary                                = "/rss/channel/itunes:summary"
     case rssChannelItunesKeywords                               = "/rss/channel/itunes:keywords"
     case rssChannelItunesType                                   = "/rss/channel/itunes:type"
-    
+
     case rssChannelItemItunesAuthor                             = "/rss/channel/item/itunes:author"
     case rssChannelItemItunesBlock                              = "/rss/channel/item/itunes:block"
     case rssChannelItemItunesImage                              = "/rss/channel/item/itunes:image"
@@ -142,15 +142,16 @@ enum RSSPath: String {
     case rssChannelItemItunesExplicit                           = "/rss/channel/item/itunes:explicit"
     case rssChannelItemItunesIsClosedCaptioned                  = "/rss/channel/item/itunes:isClosedCaptioned"
     case rssChannelItemItunesOrder                              = "/rss/channel/item/itunes:order"
+    case rssChannelItemItunesTitle                           = "/rss/channel/item/itunes:title"
     case rssChannelItemItunesSubtitle                           = "/rss/channel/item/itunes:subtitle"
     case rssChannelItemItunesSummary                            = "/rss/channel/item/itunes:summary"
     case rssChannelItemItunesKeywords                           = "/rss/channel/item/itunes:keywords"
     case rssChannelItemItunesEpisodeType                        = "/rss/channel/item/itunes:episodeType"
     case rssChannelItemItunesSeason                             = "/rss/channel/item/itunes:season"
     case rssChannelItemItunesEpisode                            = "/rss/channel/item/itunes:episode"
-    
+
     // MARK: Media
-    
+
     case rssChannelItemMediaThumbnail                           = "/rss/channel/item/media:thumbnail"
     case rssChannelItemMediaContent                             = "/rss/channel/item/media:content"
     case rssChannelItemMediaContentTitle                        = "/rss/channel/item/media:content/media:title"
@@ -188,5 +189,5 @@ enum RSSPath: String {
     case rssChannelItemMediaGroupMediaCategory                  = "/rss/channel/item/media:group/media:category"
     case rssChannelItemMediaGroupMediaRating                    = "/rss/channel/item/media:group/media:rating"
     case rssChannelItemMediaGroupMediaContent                   = "/rss/channel/item/media:group/media:content"
-    
+
 }

@@ -25,14 +25,14 @@
 import Foundation
 
 extension RSSFeed {
-    
+
     /// Maps the characters in the specified string to the `RSSFeed` model.
     ///
     /// - Parameters:
     ///   - string: The string to map to the model.
     ///   - path: The path of feed's element.
     func map(_ string: String, for path: RSSPath) {
-        
+
         switch path {
         case .rssChannelTitle:                                      self.title                                                      = self.title?.appending(string) ?? string
         case .rssChannelLink:                                       self.link                                                       = self.link?.appending(string) ?? string
@@ -126,6 +126,7 @@ extension RSSFeed {
         case .rssChannelItemItunesExplicit:                         self.items?.last?.iTunes?.iTunesExplicit                        = self.items?.last?.iTunes?.iTunesExplicit?.appending(string) ?? string
         case .rssChannelItemItunesIsClosedCaptioned:                self.items?.last?.iTunes?.isClosedCaptioned                     = self.items?.last?.iTunes?.isClosedCaptioned?.appending(string) ?? string
         case .rssChannelItemItunesOrder:                            self.items?.last?.iTunes?.iTunesOrder                           = Int(string)
+        case .rssChannelItemItunesTitle:                         self.items?.last?.iTunes?.iTunesTitle                        = self.items?.last?.iTunes?.iTunesTitle?.appending(string) ?? string
         case .rssChannelItemItunesSubtitle:                         self.items?.last?.iTunes?.iTunesSubtitle                        = self.items?.last?.iTunes?.iTunesSubtitle?.appending(string) ?? string
         case .rssChannelItemItunesSummary:                          self.items?.last?.iTunes?.iTunesSummary                         = self.items?.last?.iTunes?.iTunesSummary?.appending(string) ?? string
         case .rssChannelItemItunesKeywords:                         self.items?.last?.iTunes?.iTunesKeywords                        = self.items?.last?.iTunes?.iTunesKeywords?.appending(string) ?? string
@@ -154,16 +155,16 @@ extension RSSFeed {
         case .rssChannelItemMediaScenesMediaSceneSceneEndTime:      self.items?.last?.media?.mediaScenes?.last?.sceneEndTime        = string.toDuration()
         default: break
         }
-        
+
     }
-    
+
     /// Maps the characters in the specified string to the `RSSFeed` model.
     ///
     /// - Parameters:
     ///   - string: The string to map to the model.
     ///   - path: The path of feed's element.
     func map(_ string: String, for path: RDFPath) {
-        
+
         switch path {
         case .rdfChannelTitle:                                      self.title                                                      = self.title?.appending(string) ?? string
         case .rdfChannelLink:                                       self.link                                                       = self.link?.appending(string) ?? string
@@ -207,7 +208,7 @@ extension RSSFeed {
         case .rdfItemDublinCoreRights:                              self.items?.last?.dublinCore?.dcRights                          = self.items?.last?.dublinCore?.dcRights?.appending(string) ?? string
         default: break
         }
-        
+
     }
-    
+
 }

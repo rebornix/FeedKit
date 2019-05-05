@@ -35,7 +35,7 @@ extension RSSFeed {
     func map(_ attributes: [String : String], for path: RSSPath) {
 
         switch path {
-            
+
         case .rssChannelItem:
 
             if  self.items == nil {
@@ -188,31 +188,31 @@ extension RSSFeed {
             }
 
             switch path {
-                
+
             case .rssChannelItunesCategory:
-                
+
                 if  self.iTunes?.iTunesCategories == nil {
                     self.iTunes?.iTunesCategories = []
                 }
-                
+
                 self.iTunes?.iTunesCategories?.append(ITunesCategory(attributes: attributes))
 
             case .rssChannelItunesSubcategory:
-                
+
                 self.iTunes?.iTunesCategories?.last?.subcategory = ITunesSubCategory(attributes: attributes)
 
             case .rssChannelItunesImage:
-                
+
                 self.iTunes?.iTunesImage = ITunesImage(attributes: attributes)
 
             case .rssChannelItunesOwner:
-                
+
                 if  self.iTunes?.iTunesOwner == nil {
                     self.iTunes?.iTunesOwner = ITunesOwner()
                 }
-                
+
             default: break
-                
+
             }
 
         case
@@ -223,26 +223,27 @@ extension RSSFeed {
         .rssChannelItemItunesExplicit,
         .rssChannelItemItunesIsClosedCaptioned,
         .rssChannelItemItunesOrder,
+        .rssChannelItemItunesTitle,
         .rssChannelItemItunesSubtitle,
         .rssChannelItemItunesSummary,
         .rssChannelItemItunesKeywords:
-            
+
             if  self.items?.last?.iTunes == nil {
                 self.items?.last?.iTunes = ITunesNamespace()
             }
 
             switch path {
-                
+
             case .rssChannelItemItunesImage:
-                
+
                 self.items?.last?.iTunes?.iTunesImage = ITunesImage(attributes: attributes)
-                
+
             default: break
-                
+
             }
-            
+
             // MARK: Media
-            
+
         case
         .rssChannelItemMediaThumbnail,
         .rssChannelItemMediaContent,
@@ -277,216 +278,216 @@ extension RSSFeed {
         .rssChannelItemMediaGroupMediaCredit,
         .rssChannelItemMediaGroupMediaRating,
         .rssChannelItemMediaGroupMediaContent:
-            
+
             if  self.items?.last?.media == nil {
                 self.items?.last?.media = MediaNamespace()
             }
-            
+
             switch path {
-                
+
             case .rssChannelItemMediaThumbnail:
-                
+
                 if  self.items?.last?.media?.mediaThumbnails == nil {
                     self.items?.last?.media?.mediaThumbnails = []
                 }
-                
+
                 self.items?.last?.media?.mediaThumbnails?.append(MediaThumbnail(attributes: attributes))
-                
+
             case .rssChannelItemMediaContent:
-                
+
                 if  self.items?.last?.media?.mediaContents == nil {
                     self.items?.last?.media?.mediaContents = []
                 }
-                
+
                 self.items?.last?.media?.mediaContents?.append(MediaContent(attributes: attributes))
-                
+
             case .rssChannelItemMediaContentTitle:
-                
+
                 if  self.items?.last?.media?.mediaContents?.last?.mediaTitle == nil {
                     self.items?.last?.media?.mediaContents?.last?.mediaTitle = MediaTitle(attributes: attributes)
                 }
-                
+
             case .rssChannelItemMediaContentDescription:
-                
+
                 if  self.items?.last?.media?.mediaContents?.last?.mediaDescription == nil {
                     self.items?.last?.media?.mediaContents?.last?.mediaDescription = MediaDescription(attributes: attributes)
                 }
-                
+
             case .rssChannelItemMediaContentPlayer:
-                
+
                 if  self.items?.last?.media?.mediaContents?.last?.mediaPlayer == nil {
                     self.items?.last?.media?.mediaContents?.last?.mediaPlayer = MediaPlayer(attributes: attributes)
                 }
-                
+
             case .rssChannelItemMediaContentThumbnail:
-                
+
                 if  self.items?.last?.media?.mediaContents?.last?.mediaThumbnails == nil {
                     self.items?.last?.media?.mediaContents?.last?.mediaThumbnails = []
                 }
-                
+
                 self.items?.last?.media?.mediaContents?.last?.mediaThumbnails?.append(MediaThumbnail(attributes: attributes))
-                
+
             case .rssChannelItemMediaCommunity:
-                
+
                 if  self.items?.last?.media?.mediaCommunity == nil {
                     self.items?.last?.media?.mediaCommunity = MediaCommunity()
                 }
-                
+
             case .rssChannelItemMediaCommunityMediaStarRating:
-                
+
                 if  self.items?.last?.media?.mediaCommunity?.mediaStarRating == nil {
                     self.items?.last?.media?.mediaCommunity?.mediaStarRating = MediaStarRating(attributes: attributes)
                 }
-                
+
             case .rssChannelItemMediaCommunityMediaStatistics:
-                
+
                 if  self.items?.last?.media?.mediaCommunity?.mediaStatistics == nil {
                     self.items?.last?.media?.mediaCommunity?.mediaStatistics = MediaStatistics(attributes: attributes)
                 }
-                
+
             case .rssChannelItemMediaCommunityMediaTags:
-                
+
                 if  self.items?.last?.media?.mediaCommunity?.mediaTags == nil {
                     self.items?.last?.media?.mediaCommunity?.mediaTags = []
                 }
-                
+
             case .rssChannelItemMediaComments:
-                
+
                 if  self.items?.last?.media?.mediaComments == nil {
                     self.items?.last?.media?.mediaComments = []
                 }
-                
+
             case .rssChannelItemMediaEmbed:
-                
+
                 if  self.items?.last?.media?.mediaEmbed == nil {
                     self.items?.last?.media?.mediaEmbed = MediaEmbed(attributes: attributes)
                 }
-                
+
             case .rssChannelItemMediaEmbedMediaParam:
-                
+
                 if  self.items?.last?.media?.mediaEmbed?.mediaParams == nil {
                     self.items?.last?.media?.mediaEmbed?.mediaParams = []
                 }
-                
+
                 self.items?.last?.media?.mediaEmbed?.mediaParams?.append(MediaParam(attributes: attributes))
-                
+
             case .rssChannelItemMediaResponses:
-                
+
                 if  self.items?.last?.media?.mediaResponses == nil {
                     self.items?.last?.media?.mediaResponses = []
                 }
-                
+
             case .rssChannelItemMediaBackLinks:
-                
+
                 if  self.items?.last?.media?.mediaBackLinks == nil {
                     self.items?.last?.media?.mediaBackLinks = []
                 }
-                
+
             case .rssChannelItemMediaStatus:
-                
+
                 if  self.items?.last?.media?.mediaStatus == nil {
                     self.items?.last?.media?.mediaStatus = MediaStatus(attributes: attributes)
                 }
-                
+
             case .rssChannelItemMediaPrice:
-                
+
                 if  self.items?.last?.media?.mediaPrices == nil {
                     self.items?.last?.media?.mediaPrices = []
                 }
-                
+
                 self.items?.last?.media?.mediaPrices?.append(MediaPrice(attributes: attributes))
-                
+
             case .rssChannelItemMediaLicense:
-                
+
                 if  self.items?.last?.media?.mediaLicense == nil {
                     self.items?.last?.media?.mediaLicense = MediaLicence(attributes: attributes)
                 }
-                
+
             case .rssChannelItemMediaSubTitle:
-                
+
                 if  self.items?.last?.media?.mediaSubTitle == nil {
                     self.items?.last?.media?.mediaSubTitle = MediaSubTitle(attributes: attributes)
                 }
-                
+
             case .rssChannelItemMediaPeerLink:
-                
+
                 if  self.items?.last?.media?.mediaPeerLink == nil {
                     self.items?.last?.media?.mediaPeerLink = MediaPeerLink(attributes: attributes)
                 }
-                
+
             case .rssChannelItemMediaLocation:
-                
+
                 if  self.items?.last?.media?.mediaLocation == nil {
                     self.items?.last?.media?.mediaLocation = MediaLocation(attributes: attributes)
                 }
-                
+
             case .rssChannelItemMediaRestriction:
-                
+
                 if  self.items?.last?.media?.mediaRestriction == nil {
                     self.items?.last?.media?.mediaRestriction = MediaRestriction(attributes: attributes)
                 }
-                
+
             case .rssChannelItemMediaScenes:
-                
+
                 if  self.items?.last?.media?.mediaScenes == nil {
                     self.items?.last?.media?.mediaScenes = []
                 }
-                
+
             case .rssChannelItemMediaScenesMediaScene:
-                
+
                 if  self.items?.last?.media?.mediaScenes == nil {
                     self.items?.last?.media?.mediaScenes = []
                 }
-                
+
                 self.items?.last?.media?.mediaScenes?.append(MediaScene())
-                
+
             case .rssChannelItemMediaGroup:
-                
+
                 if  self.items?.last?.media?.mediaGroup == nil {
                     self.items?.last?.media?.mediaGroup = MediaGroup()
                 }
-                
+
             case .rssChannelItemMediaGroupMediaCategory:
-                
+
                 if  self.items?.last?.media?.mediaGroup?.mediaCategory == nil {
                     self.items?.last?.media?.mediaGroup?.mediaCategory = MediaCategory(attributes: attributes)
                 }
-                
+
             case .rssChannelItemMediaGroupMediaCredit:
-                
+
                 if  self.items?.last?.media?.mediaGroup?.mediaCredits == nil {
                     self.items?.last?.media?.mediaGroup?.mediaCredits = []
                 }
-                
+
                 self.items?.last?.media?.mediaGroup?.mediaCredits?.append(MediaCredit(attributes: attributes))
-                
+
             case .rssChannelItemMediaGroupMediaRating:
-                
+
                 if  self.items?.last?.media?.mediaGroup?.mediaRating == nil {
                     self.items?.last?.media?.mediaGroup?.mediaRating = MediaRating(attributes: attributes)
                 }
-                
+
             case .rssChannelItemMediaGroupMediaContent:
-                
+
                 if  self.items?.last?.media?.mediaGroup?.mediaContents == nil {
                     self.items?.last?.media?.mediaGroup?.mediaContents = []
                 }
-                
+
                 self.items?.last?.media?.mediaGroup?.mediaContents?.append(MediaContent(attributes: attributes))
-                
+
             default: break
-                
+
             }
 
-            
+
         default: break
-            
-            
+
+
         }
-        
-        
+
+
     }
-    
+
     /// Maps the attributes of the specified dictionary for a given `RSSPath`
     /// to the `RSSFeed` model,
     ///
@@ -494,25 +495,25 @@ extension RSSFeed {
     ///   - attributes: The attribute dictionary to map to the model.
     ///   - path: The path of feed's element.
     func map(_ attributes: [String : String], for path: RDFPath) {
-    
+
         switch path {
-        
+
         case .rdfItem:
             if  self.items == nil {
                 self.items = []
             }
-            
+
             self.items?.append(RSSFeedItem())
-            
+
         case
         .rdfChannelSyndicationUpdateBase,
         .rdfChannelSyndicationUpdatePeriod,
         .rdfChannelSyndicationUpdateFrequency:
-            
+
             if  self.syndication == nil {
                 self.syndication = SyndicationNamespace()
             }
-            
+
         case
         .rdfChannelDublinCoreTitle,
         .rdfChannelDublinCoreCreator,
@@ -529,11 +530,11 @@ extension RSSFeed {
         .rdfChannelDublinCoreRelation,
         .rdfChannelDublinCoreCoverage,
         .rdfChannelDublinCoreRights:
-            
+
             if  self.dublinCore == nil {
                 self.dublinCore = DublinCoreNamespace()
             }
-            
+
         case
         .rdfItemDublinCoreTitle,
         .rdfItemDublinCoreCreator,
@@ -550,14 +551,14 @@ extension RSSFeed {
         .rdfItemDublinCoreRelation,
         .rdfItemDublinCoreCoverage,
         .rdfItemDublinCoreRights:
-            
+
             if  self.items?.last?.dublinCore == nil {
                 self.items?.last?.dublinCore = DublinCoreNamespace()
             }
-            
+
         default: break
         }
-        
+
     }
-    
+
 }
